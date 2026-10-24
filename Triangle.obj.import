@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://rbetpr3mb1ht"
+path="res://.godot/imported/Triangle.obj-0a71d82690d5ad226f957e41f088a01c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Triangle.obj-0a71d82690d5ad226f957e41f088a01c.mesh"]
+
+source_file="res://Triangle.obj"
+dest_files=["res://.godot/imported/Triangle.obj-0a71d82690d5ad226f957e41f088a01c.mesh", "res://.godot/imported/Triangle.obj-0a71d82690d5ad226f957e41f088a01c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

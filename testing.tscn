@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c2wu42ebfep8j"]
+
+[ext_resource type="PackedScene" uid="uid://xkcob4s20asj" path="res://ship.tscn" id="1_8l2lq"]
+[ext_resource type="Script" uid="uid://lw4efr02jval" path="res://speed_display.gd" id="2_v2m4w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dochn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c5v2o"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_0sir6"]
+
+[node name="Testing" type="Node3D" unique_id=1256322579]
+
+[node name="Ship" parent="." unique_id=1788339217 instance=ExtResource("1_8l2lq")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1002183801]
+transform = Transform3D(0.299806, 0.933487, -0.196771, -0.780412, 0.358613, 0.512206, 0.548702, -5.30299e-08, 0.836018, -2.69631, 1.19209e-07, 1.41985)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=331019762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18489, 2.38419e-07, 0.210392)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=127008205]
+mesh = SubResource("BoxMesh_dochn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/MeshInstance3D" unique_id=1495414372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07516, 0)
+mesh = SubResource("BoxMesh_dochn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1471280165]
+shape = SubResource("BoxShape3D_c5v2o")
+
+[node name="Control" type="Control" parent="." unique_id=1769643721]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SpeedDisplay" type="Label" parent="Control" unique_id=1767251235]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 23.0
+text = "sup"
+script = ExtResource("2_v2m4w")
+
+[node name="CurrentAim" type="Sprite2D" parent="Control" unique_id=503645480]
+texture = SubResource("ImageTexture_0sir6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1923109332]
+
+[connection signal="speed_publisher" from="Ship" to="Control/SpeedDisplay" method="_on_ship_speed"]
